@@ -14,25 +14,27 @@ public class knightWASD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 velocity = rb.velocity;
         if (Input.GetKey("w"))
         {
-            float ySpeed = 16.0f;
-            rb.velocity = new Vector3(ySpeed * 0, Time.deltaTime, 0);
+            velocity.y = 16;
+            Debug.Log("W key");
+            rb.velocity = new Vector2(0, velocity);
         }
         if (Input.GetKey("a"))
         {
-            float xSpeed = 5.0f;
-            transform.position -= new Vector3(xSpeed * Time.deltaTime, 0, 0);
+            velocity.x = -16;
+            rb.velocity = new Vector2(velocity, 0);
         }
         if (Input.GetKey("d"))
         {
-            float xSpeed = 5.0f;
-            transform.position += new Vector3(xSpeed * Time.deltaTime, 0, 0);
+            velocity.x = 16;
+            rb.velocity = new Vector2(velocity, 0);
         }
         if (Input.GetKey("s"))
         {
-            float ySpeed = 8.0f;
-            transform.position -= new Vector3(ySpeed * 0, Time.deltaTime, 0);
+            velocity.y = -16;
+            rb.velocity = new Vector2(0, velocity);
         }
     }
 }
