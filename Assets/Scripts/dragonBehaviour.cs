@@ -9,6 +9,7 @@ public class dragonBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        xDirection = 9;
     }
 
     // Update is called once per frame
