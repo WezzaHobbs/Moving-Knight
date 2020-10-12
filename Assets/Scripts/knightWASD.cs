@@ -9,32 +9,42 @@ public class knightWASD : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 velocity = rb.velocity;
-        if (Input.GetKey("w"))
+        int xSpeed = 5;
+        int ySpeed = 5;
+        bool isGrounded = true;
+
+        Vector3 velocity = rb.velocity;
+        if (Input.GetKey("w") && isGrounded == true)
         {
-            velocity.y = 16;
-            Debug.Log("W key");
-            rb.velocity = new Vector2(0, velocity);
+            velocity.y = ySpeed;
         }
-        if (Input.GetKey("a"))
-        {
-            velocity.x = -16;
-            rb.velocity = new Vector2(velocity, 0);
-        }
-        if (Input.GetKey("d"))
-        {
-            velocity.x = 16;
-            rb.velocity = new Vector2(velocity, 0);
-        }
+        rb.velocity = velocity;
         if (Input.GetKey("s"))
         {
-            velocity.y = -16;
-            rb.velocity = new Vector2(0, velocity);
+            velocity.y = -ySpeed;
         }
+        rb.velocity = velocity;
+        if (Input.GetKey("a"))
+        {
+            velocity.x = -xSpeed;
+
+        }
+        rb.velocity = velocity;
+        if (Input.GetKey("d"))
+        {
+            velocity.x = xSpeed;
+        }
+        rb.velocity = velocity;
+    }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log(col.gameObject.name);
     }
 }

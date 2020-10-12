@@ -9,7 +9,6 @@ public class dragonBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        xDirection = 3;
     }
 
     // Update is called once per frame
@@ -21,6 +20,6 @@ public class dragonBehaviour : MonoBehaviour
             timer = 0;
             xDirection = -xDirection;
         }
-        transform.position += new Vector2(xDirection * Time.deltaTime, 0);
+        transform.position += new Vector3(xDirection * Time.deltaTime, 0, 0);
     }
 }
