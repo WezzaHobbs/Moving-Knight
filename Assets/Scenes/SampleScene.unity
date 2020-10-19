@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 248349490}
   - component: {fileID: 248349491}
   m_Layer: 0
-  m_Name: knight
+  m_Name: crusader [player]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,8 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e70772133558f04fa73219df9b50b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSprite: {fileID: 21300000, guid: 54926ebb6bb5ddc48bad405517828f5e, type: 3}
-  secondSprite: {fileID: 21300000, guid: a0ae50de274a34d459d50cbe313aa7a3, type: 3}
+  firstSprite: {fileID: 21300000, guid: a0ae50de274a34d459d50cbe313aa7a3, type: 3}
+  secondSprite: {fileID: 21300000, guid: 54926ebb6bb5ddc48bad405517828f5e, type: 3}
+  thirdSprite: {fileID: 21300000, guid: 97f9f28dba1325c4ea1e71b913409c36, type: 3}
+  fourthSprite: {fileID: 21300000, guid: f3a463bb0ac746b4a9f0c2512884bbcf, type: 3}
 --- !u!212 &248349487
 SpriteRenderer:
   m_ObjectHideFlags: 0

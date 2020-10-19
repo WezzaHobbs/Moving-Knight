@@ -6,8 +6,10 @@ public class knightWASD : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
-    public Sprite firstSprite;
-    public Sprite secondSprite;
+    public Sprite firstSprite; //Default Sprite
+    public Sprite secondSprite; //Default Jump Sprite
+    public Sprite thirdSprite; //Flipped Sprite
+    public Sprite fourthSprite; //Flipped Jump Sprite
     // Start is called before the first frame update
     void Start()
     {
@@ -19,45 +21,53 @@ public class knightWASD : MonoBehaviour
     {
         int xSpeed = 5;
         int ySpeed = 6;
-        bool isGrounded = true;
 
         Vector3 velocity = rb.velocity;
-        if (Input.GetKey("w") && isGrounded == true)
+        if (Input.GetKey("w"))
         {
             velocity.y = ySpeed;
         }
-        rb.velocity = velocity;
-        if (Input.GetKey("s"))
+        else if (Input.GetKey("s"))
         {
             velocity.y = -ySpeed;
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = secondSprite;
         }
         rb.velocity = velocity;
+
         if (Input.GetKey("a"))
         {
             velocity.x = -xSpeed;
-
         }
-        rb.velocity = velocity;
-        if (Input.GetKey("d"))
+        else if (Input.GetKey("d"))
         {
             velocity.x = xSpeed;
         }
         rb.velocity = velocity;
-        if (velocity.y > 0)
+
+        if ((velocity.y <= 0.2) && (velocity.x >= 0)) //Default Sprite
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = firstSprite;
         }
-        if (velocity.y <= 0)
+        else if ((velocity.y > 0.2) && (velocity.x >= 0)) //Default Jump Sprite
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = secondSprite;
+        }
+        else if ((velocity.y <= 0.2) && (velocity.x< 0)) //Flipped Sprite
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = thirdSprite;
+        }
+        else if ((velocity.y > 0.2) && (velocity.x <= 0)) //Flipped Jump Sprite
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = fourthSprite;
         }
     }
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log(col.gameObject.name);
     }
+    
 }
+
